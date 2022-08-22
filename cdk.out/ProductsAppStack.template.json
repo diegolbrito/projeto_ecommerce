@@ -1,0 +1,115 @@
+{
+ "Resources": {
+  "productsFetchFunctionServiceRole1B528C44": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "lambda.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "ManagedPolicyArns": [
+     {
+      "Fn::Join": [
+       "",
+       [
+        "arn:",
+        {
+         "Ref": "AWS::Partition"
+        },
+        ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+       ]
+      ]
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "ProductsAppStack/productsFetchFunction/ServiceRole/Resource"
+   }
+  },
+  "productsFetchFunction2DB1CD0C": {
+   "Type": "AWS::Lambda::Function",
+   "Properties": {
+    "Code": {
+     "S3Bucket": "cdk-hnb659fds-assets-211112452705-us-east-1",
+     "S3Key": "7798cb37d5aa457c0880533b42c9800d096c91dc6a5cd8acf3186fc548c9acbf.zip"
+    },
+    "Role": {
+     "Fn::GetAtt": [
+      "productsFetchFunctionServiceRole1B528C44",
+      "Arn"
+     ]
+    },
+    "Environment": {
+     "Variables": {
+      "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1"
+     }
+    },
+    "FunctionName": "productsFetchFunction",
+    "Handler": "index.handler",
+    "MemorySize": 128,
+    "Runtime": "nodejs14.x",
+    "Timeout": 5
+   },
+   "DependsOn": [
+    "productsFetchFunctionServiceRole1B528C44"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "ProductsAppStack/productsFetchFunction/Resource",
+    "aws:asset:path": "C:\\Users\\diego\\source\\repos\\projeto_ecommerce",
+    "aws:asset:is-bundled": true,
+    "aws:asset:property": "Code"
+   }
+  },
+  "CDKMetadata": {
+   "Type": "AWS::CDK::Metadata",
+   "Properties": {
+    "Analytics": "v2:deflate64:H4sIAAAAAAAA/zWNOw6DMBBEz0JvNhAa2hApZQpyALSYDVo+tsTaSYG4e2yjVE8zGr25QlVDmeFXcj3M+cI97C+Helah6vYF137AztiBJoFnwsMb7dgaxbjC3tqF1P1tIg8lVYci5ARuESFD4/VMrkEhddogrP+OQ6VdeBzZjMlDYv2mgyuewiSXT1lDAUU2CXO+eeN4JWhP/gBT0xIuvwAAAA=="
+   },
+   "Metadata": {
+    "aws:cdk:path": "ProductsAppStack/CDKMetadata/Default"
+   }
+  }
+ },
+ "Parameters": {
+  "BootstrapVersion": {
+   "Type": "AWS::SSM::Parameter::Value<String>",
+   "Default": "/cdk-bootstrap/hnb659fds/version",
+   "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]"
+  }
+ },
+ "Rules": {
+  "CheckBootstrapVersion": {
+   "Assertions": [
+    {
+     "Assert": {
+      "Fn::Not": [
+       {
+        "Fn::Contains": [
+         [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+         ],
+         {
+          "Ref": "BootstrapVersion"
+         }
+        ]
+       }
+      ]
+     },
+     "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI."
+    }
+   ]
+  }
+ }
+}

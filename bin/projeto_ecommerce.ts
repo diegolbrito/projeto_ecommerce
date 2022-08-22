@@ -23,7 +23,8 @@ const productsAppStack = new ProductAppStack(app, "ProductsAppStack", {
 
 const ecommerceApiStack = new ECommerceApiStack(app, "ECommerceApi", {
   productsFetchHandler: productsAppStack.productsFetchHandler,
-  tags: tags
+  tags: tags,
+  env: env
 })
 
 ecommerceApiStack.addDependency(productsAppStack)

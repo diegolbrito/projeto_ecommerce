@@ -27,7 +27,7 @@
         "validateOnSynth": false,
         "assumeRoleArn": "arn:${AWS::Partition}:iam::211112452705:role/cdk-hnb659fds-deploy-role-211112452705-us-east-1",
         "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::211112452705:role/cdk-hnb659fds-cfn-exec-role-211112452705-us-east-1",
-        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-211112452705-us-east-1/6b80b344fba7e991240e25827009926f14552996bc37e9692bb54202bdf1af04.json",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-211112452705-us-east-1/720b9a22235f3894086ace8abced5a4db5e236655850c48f547efcbc2e3f7361.json",
         "requiresBootstrapStackVersion": 6,
         "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
         "additionalDependencies": [
@@ -76,6 +76,12 @@
             "data": "CDKMetadata"
           }
         ],
+        "/ProductsAppStack/Exports/Output{\"Fn::GetAtt\":[\"productsFetchFunction2DB1CD0C\",\"Arn\"]}": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ExportsOutputFnGetAttproductsFetchFunction2DB1CD0CArn17AF6EB5"
+          }
+        ],
         "/ProductsAppStack/BootstrapVersion": [
           {
             "type": "aws:cdk:logicalId",
@@ -101,7 +107,7 @@
     },
     "ECommerceApi": {
       "type": "aws:cloudformation:stack",
-      "environment": "aws://unknown-account/unknown-region",
+      "environment": "aws://211112452705/us-east-1",
       "properties": {
         "templateFile": "ECommerceApi.template.json",
         "tags": {
@@ -109,16 +115,16 @@
           "team": "mba"
         },
         "validateOnSynth": false,
-        "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-deploy-role-${AWS::AccountId}-${AWS::Region}",
-        "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-cfn-exec-role-${AWS::AccountId}-${AWS::Region}",
-        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/86417ebbf09f455e57ce620d86a103678d3a5ee25c6997802f66d273487b0e91.json",
+        "assumeRoleArn": "arn:${AWS::Partition}:iam::211112452705:role/cdk-hnb659fds-deploy-role-211112452705-us-east-1",
+        "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::211112452705:role/cdk-hnb659fds-cfn-exec-role-211112452705-us-east-1",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-211112452705-us-east-1/191f8e91d799e0bb9df64f52e90ff4f896169d8bcf1497fa8449314531ed2cf9.json",
         "requiresBootstrapStackVersion": 6,
         "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
         "additionalDependencies": [
           "ECommerceApi.assets"
         ],
         "lookupRole": {
-          "arn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-lookup-role-${AWS::AccountId}-${AWS::Region}",
+          "arn": "arn:${AWS::Partition}:iam::211112452705:role/cdk-hnb659fds-lookup-role-211112452705-us-east-1",
           "requiresBootstrapStackVersion": 8,
           "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
         }
@@ -158,7 +164,7 @@
         "/ECommerceApi/EcommerceApi/Deployment/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "EcommerceApiDeployment86790CE55cdbca2602f2e6bd33a5996d34c0ab19"
+            "data": "EcommerceApiDeployment86790CE55d2df73aa1dd1f2590e756eb110c5639"
           }
         ],
         "/ECommerceApi/EcommerceApi/DeploymentStage.prod/Resource": [
@@ -201,12 +207,6 @@
           {
             "type": "aws:cdk:logicalId",
             "data": "CDKMetadata"
-          }
-        ],
-        "/ECommerceApi/CDKMetadata/Condition": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "CDKMetadataAvailable"
           }
         ],
         "/ECommerceApi/BootstrapVersion": [

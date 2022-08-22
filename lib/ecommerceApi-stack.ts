@@ -37,8 +37,6 @@ export class ECommerceApiStack extends cdk.Stack {
                 }
             })
 
-            logGroup.grantWrite(api)
-
             const productsFetchIntegration = new apigateway.LambdaIntegration(props.productsFetchHandler)
             const productsResource = api.root.addResource("products")
             productsResource.addMethod("GET", productsFetchIntegration)

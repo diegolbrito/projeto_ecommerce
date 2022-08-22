@@ -3,10 +3,10 @@
   "EcommerceApiLogsD1F38FF3": {
    "Type": "AWS::Logs::LogGroup",
    "Properties": {
-    "RetentionInDays": 731
+    "RetentionInDays": 1
    },
-   "UpdateReplacePolicy": "Retain",
-   "DeletionPolicy": "Retain",
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
    "Metadata": {
     "aws:cdk:path": "ECommerceApi/EcommerceApiLogs/Resource"
    }
@@ -20,7 +20,7 @@
     "aws:cdk:path": "ECommerceApi/EcommerceApi/Resource"
    }
   },
-  "EcommerceApiDeployment86790CE55cdbca2602f2e6bd33a5996d34c0ab19": {
+  "EcommerceApiDeployment86790CE55d2df73aa1dd1f2590e756eb110c5639": {
    "Type": "AWS::ApiGateway::Deployment",
    "Properties": {
     "RestApiId": {
@@ -52,7 +52,7 @@
      "Format": "{\"requestId\":\"$context.requestId\",\"ip\":\"$context.identity.sourceIp\",\"user\":\"$context.identity.user\",\"caller\":\"$context.identity.caller\",\"requestTime\":\"$context.requestTime\",\"httpMethod\":\"$context.httpMethod\",\"resourcePath\":\"$context.resourcePath\",\"status\":\"$context.status\",\"protocol\":\"$context.protocol\",\"responseLength\":\"$context.responseLength\"}"
     },
     "DeploymentId": {
-     "Ref": "EcommerceApiDeployment86790CE55cdbca2602f2e6bd33a5996d34c0ab19"
+     "Ref": "EcommerceApiDeployment86790CE55d2df73aa1dd1f2590e756eb110c5639"
     },
     "StageName": "prod"
    },
@@ -82,25 +82,15 @@
    "Type": "AWS::Lambda::Permission",
    "Properties": {
     "Action": "lambda:InvokeFunction",
-    "FunctionName": "arn:aws:lambda:us-east-1:211112452705:function:productsFetchFunction",
+    "FunctionName": {
+     "Fn::ImportValue": "ProductsAppStack:ExportsOutputFnGetAttproductsFetchFunction2DB1CD0CArn17AF6EB5"
+    },
     "Principal": "apigateway.amazonaws.com",
     "SourceArn": {
      "Fn::Join": [
       "",
       [
-       "arn:",
-       {
-        "Ref": "AWS::Partition"
-       },
-       ":execute-api:",
-       {
-        "Ref": "AWS::Region"
-       },
-       ":",
-       {
-        "Ref": "AWS::AccountId"
-       },
-       ":",
+       "arn:aws:execute-api:us-east-1:211112452705:",
        {
         "Ref": "EcommerceApi0765794B"
        },
@@ -121,25 +111,15 @@
    "Type": "AWS::Lambda::Permission",
    "Properties": {
     "Action": "lambda:InvokeFunction",
-    "FunctionName": "arn:aws:lambda:us-east-1:211112452705:function:productsFetchFunction",
+    "FunctionName": {
+     "Fn::ImportValue": "ProductsAppStack:ExportsOutputFnGetAttproductsFetchFunction2DB1CD0CArn17AF6EB5"
+    },
     "Principal": "apigateway.amazonaws.com",
     "SourceArn": {
      "Fn::Join": [
       "",
       [
-       "arn:",
-       {
-        "Ref": "AWS::Partition"
-       },
-       ":execute-api:",
-       {
-        "Ref": "AWS::Region"
-       },
-       ":",
-       {
-        "Ref": "AWS::AccountId"
-       },
-       ":",
+       "arn:aws:execute-api:us-east-1:211112452705:",
        {
         "Ref": "EcommerceApi0765794B"
        },
@@ -170,15 +150,11 @@
       "Fn::Join": [
        "",
        [
-        "arn:",
+        "arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/",
         {
-         "Ref": "AWS::Partition"
+         "Fn::ImportValue": "ProductsAppStack:ExportsOutputFnGetAttproductsFetchFunction2DB1CD0CArn17AF6EB5"
         },
-        ":apigateway:",
-        {
-         "Ref": "AWS::Region"
-        },
-        ":lambda:path/2015-03-31/functions/arn:aws:lambda:us-east-1:211112452705:function:productsFetchFunction/invocations"
+        "/invocations"
        ]
       ]
      }
@@ -191,12 +167,11 @@
   "CDKMetadata": {
    "Type": "AWS::CDK::Metadata",
    "Properties": {
-    "Analytics": "v2:deflate64:H4sIAAAAAAAA/1WMSw7CMAxEz8K+Nb9Nt3wkNiBQOQAKjSmGNo4aB4Sq3p2EgoCV3zyNZwLTDMYDdXdpoa9pRUdo96KKaxLUoa24dNCuuVw17G2yOJkPd4myVCrBu3pAm6OTmaVY+OASbcWPGo1E+5PCfInR9RD67JsC58p9w3uo5w3KmXVUPXVJpeqjVhDMDpuanCM2XSxsvVgvf9+BF2w0yatjWCNc3PA2zmAEo8HFEaWNN0I1Qt7fJ3TKz2YUAQAA"
+    "Analytics": "v2:deflate64:H4sIAAAAAAAA/02Myw6CMBBFv4V9GUE3bH0kbjQa/ABTYMRCaZs+JKTh36VBIqs59+TO3cIugzSivYnLqo05K8A/LC1bMqmn57I24C+yPmvpFDm+xMIjoYrV1GJPB/A5GrtXLBQWPKHicuhQ2GBXaZqvMbgZpr50usQDNf/wG5r5ivYtq6BmGgmnXVFRmMwddceMYVKMoXBzVjm7/h6JkBVCYzafNIMEkqgxjMXaCcs6hHy+X9X9kqQHAQAA"
    },
    "Metadata": {
     "aws:cdk:path": "ECommerceApi/CDKMetadata/Default"
-   },
-   "Condition": "CDKMetadataAvailable"
+   }
   }
  },
  "Outputs": {
@@ -209,11 +184,7 @@
       {
        "Ref": "EcommerceApi0765794B"
       },
-      ".execute-api.",
-      {
-       "Ref": "AWS::Region"
-      },
-      ".",
+      ".execute-api.us-east-1.",
       {
        "Ref": "AWS::URLSuffix"
       },
@@ -225,200 +196,6 @@
      ]
     ]
    }
-  }
- },
- "Conditions": {
-  "CDKMetadataAvailable": {
-   "Fn::Or": [
-    {
-     "Fn::Or": [
-      {
-       "Fn::Equals": [
-        {
-         "Ref": "AWS::Region"
-        },
-        "af-south-1"
-       ]
-      },
-      {
-       "Fn::Equals": [
-        {
-         "Ref": "AWS::Region"
-        },
-        "ap-east-1"
-       ]
-      },
-      {
-       "Fn::Equals": [
-        {
-         "Ref": "AWS::Region"
-        },
-        "ap-northeast-1"
-       ]
-      },
-      {
-       "Fn::Equals": [
-        {
-         "Ref": "AWS::Region"
-        },
-        "ap-northeast-2"
-       ]
-      },
-      {
-       "Fn::Equals": [
-        {
-         "Ref": "AWS::Region"
-        },
-        "ap-south-1"
-       ]
-      },
-      {
-       "Fn::Equals": [
-        {
-         "Ref": "AWS::Region"
-        },
-        "ap-southeast-1"
-       ]
-      },
-      {
-       "Fn::Equals": [
-        {
-         "Ref": "AWS::Region"
-        },
-        "ap-southeast-2"
-       ]
-      },
-      {
-       "Fn::Equals": [
-        {
-         "Ref": "AWS::Region"
-        },
-        "ca-central-1"
-       ]
-      },
-      {
-       "Fn::Equals": [
-        {
-         "Ref": "AWS::Region"
-        },
-        "cn-north-1"
-       ]
-      },
-      {
-       "Fn::Equals": [
-        {
-         "Ref": "AWS::Region"
-        },
-        "cn-northwest-1"
-       ]
-      }
-     ]
-    },
-    {
-     "Fn::Or": [
-      {
-       "Fn::Equals": [
-        {
-         "Ref": "AWS::Region"
-        },
-        "eu-central-1"
-       ]
-      },
-      {
-       "Fn::Equals": [
-        {
-         "Ref": "AWS::Region"
-        },
-        "eu-north-1"
-       ]
-      },
-      {
-       "Fn::Equals": [
-        {
-         "Ref": "AWS::Region"
-        },
-        "eu-south-1"
-       ]
-      },
-      {
-       "Fn::Equals": [
-        {
-         "Ref": "AWS::Region"
-        },
-        "eu-west-1"
-       ]
-      },
-      {
-       "Fn::Equals": [
-        {
-         "Ref": "AWS::Region"
-        },
-        "eu-west-2"
-       ]
-      },
-      {
-       "Fn::Equals": [
-        {
-         "Ref": "AWS::Region"
-        },
-        "eu-west-3"
-       ]
-      },
-      {
-       "Fn::Equals": [
-        {
-         "Ref": "AWS::Region"
-        },
-        "me-south-1"
-       ]
-      },
-      {
-       "Fn::Equals": [
-        {
-         "Ref": "AWS::Region"
-        },
-        "sa-east-1"
-       ]
-      },
-      {
-       "Fn::Equals": [
-        {
-         "Ref": "AWS::Region"
-        },
-        "us-east-1"
-       ]
-      },
-      {
-       "Fn::Equals": [
-        {
-         "Ref": "AWS::Region"
-        },
-        "us-east-2"
-       ]
-      }
-     ]
-    },
-    {
-     "Fn::Or": [
-      {
-       "Fn::Equals": [
-        {
-         "Ref": "AWS::Region"
-        },
-        "us-west-1"
-       ]
-      },
-      {
-       "Fn::Equals": [
-        {
-         "Ref": "AWS::Region"
-        },
-        "us-west-2"
-       ]
-      }
-     ]
-    }
-   ]
   }
  },
  "Parameters": {

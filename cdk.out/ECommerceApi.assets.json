@@ -1,16 +1,17 @@
 {
   "version": "20.0.0",
   "files": {
-    "86417ebbf09f455e57ce620d86a103678d3a5ee25c6997802f66d273487b0e91": {
+    "191f8e91d799e0bb9df64f52e90ff4f896169d8bcf1497fa8449314531ed2cf9": {
       "source": {
         "path": "ECommerceApi.template.json",
         "packaging": "file"
       },
       "destinations": {
-        "current_account-current_region": {
-          "bucketName": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}",
-          "objectKey": "86417ebbf09f455e57ce620d86a103678d3a5ee25c6997802f66d273487b0e91.json",
-          "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-file-publishing-role-${AWS::AccountId}-${AWS::Region}"
+        "211112452705-us-east-1": {
+          "bucketName": "cdk-hnb659fds-assets-211112452705-us-east-1",
+          "objectKey": "191f8e91d799e0bb9df64f52e90ff4f896169d8bcf1497fa8449314531ed2cf9.json",
+          "region": "us-east-1",
+          "assumeRoleArn": "arn:${AWS::Partition}:iam::211112452705:role/cdk-hnb659fds-file-publishing-role-211112452705-us-east-1"
         }
       }
     }

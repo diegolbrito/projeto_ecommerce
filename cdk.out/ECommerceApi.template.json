@@ -3,24 +3,24 @@
   "EcommerceApiLogsD1F38FF3": {
    "Type": "AWS::Logs::LogGroup",
    "Properties": {
-    "RetentionInDays": 1
+    "RetentionInDays": 731
    },
-   "UpdateReplacePolicy": "Delete",
-   "DeletionPolicy": "Delete",
+   "UpdateReplacePolicy": "Retain",
+   "DeletionPolicy": "Retain",
    "Metadata": {
-    "aws:cdk:path": "ECommerceApi/EcommerceApiLogs/Resource"
+    "aws:cdk:path": "EcommerceApi/EcommerceApiLogs/Resource"
    }
   },
   "EcommerceApi0765794B": {
    "Type": "AWS::ApiGateway::RestApi",
    "Properties": {
-    "Name": "ECommerceApi"
+    "Name": "EcommerceApi"
    },
    "Metadata": {
-    "aws:cdk:path": "ECommerceApi/EcommerceApi/Resource"
+    "aws:cdk:path": "EcommerceApi/EcommerceApi/Resource"
    }
   },
-  "EcommerceApiDeployment86790CE55d2df73aa1dd1f2590e756eb110c5639": {
+  "EcommerceApiDeployment86790CE5484f5fc6a736cd1cd6d4c846019a0489": {
    "Type": "AWS::ApiGateway::Deployment",
    "Properties": {
     "RestApiId": {
@@ -33,7 +33,7 @@
     "EcommerceApiproducts3A5DE74B"
    ],
    "Metadata": {
-    "aws:cdk:path": "ECommerceApi/EcommerceApi/Deployment/Resource"
+    "aws:cdk:path": "EcommerceApi/EcommerceApi/Deployment/Resource"
    }
   },
   "EcommerceApiDeploymentStageprod2E10F6B0": {
@@ -52,12 +52,12 @@
      "Format": "{\"requestId\":\"$context.requestId\",\"ip\":\"$context.identity.sourceIp\",\"user\":\"$context.identity.user\",\"caller\":\"$context.identity.caller\",\"requestTime\":\"$context.requestTime\",\"httpMethod\":\"$context.httpMethod\",\"resourcePath\":\"$context.resourcePath\",\"status\":\"$context.status\",\"protocol\":\"$context.protocol\",\"responseLength\":\"$context.responseLength\"}"
     },
     "DeploymentId": {
-     "Ref": "EcommerceApiDeployment86790CE55d2df73aa1dd1f2590e756eb110c5639"
+     "Ref": "EcommerceApiDeployment86790CE5484f5fc6a736cd1cd6d4c846019a0489"
     },
     "StageName": "prod"
    },
    "Metadata": {
-    "aws:cdk:path": "ECommerceApi/EcommerceApi/DeploymentStage.prod/Resource"
+    "aws:cdk:path": "EcommerceApi/EcommerceApi/DeploymentStage.prod/Resource"
    }
   },
   "EcommerceApiproducts3A5DE74B": {
@@ -75,15 +75,15 @@
     }
    },
    "Metadata": {
-    "aws:cdk:path": "ECommerceApi/EcommerceApi/Default/products/Resource"
+    "aws:cdk:path": "EcommerceApi/EcommerceApi/Default/products/Resource"
    }
   },
-  "EcommerceApiproductsGETApiPermissionECommerceApiEcommerceApi575E9953GETproductsC3DCDC98": {
+  "EcommerceApiproductsGETApiPermissionEcommerceApi17CA3E83GETproducts9B3A9E59": {
    "Type": "AWS::Lambda::Permission",
    "Properties": {
     "Action": "lambda:InvokeFunction",
     "FunctionName": {
-     "Fn::ImportValue": "ProductsAppStack:ExportsOutputFnGetAttproductsFetchFunction2DB1CD0CArn17AF6EB5"
+     "Fn::ImportValue": "ProductsApp:ExportsOutputFnGetAttproductsFetchFunction2DB1CD0CArn17AF6EB5"
     },
     "Principal": "apigateway.amazonaws.com",
     "SourceArn": {
@@ -104,15 +104,15 @@
     }
    },
    "Metadata": {
-    "aws:cdk:path": "ECommerceApi/EcommerceApi/Default/products/GET/ApiPermission.ECommerceApiEcommerceApi575E9953.GET..products"
+    "aws:cdk:path": "EcommerceApi/EcommerceApi/Default/products/GET/ApiPermission.EcommerceApi17CA3E83.GET..products"
    }
   },
-  "EcommerceApiproductsGETApiPermissionTestECommerceApiEcommerceApi575E9953GETproducts46363EC5": {
+  "EcommerceApiproductsGETApiPermissionTestEcommerceApi17CA3E83GETproducts2091D1F4": {
    "Type": "AWS::Lambda::Permission",
    "Properties": {
     "Action": "lambda:InvokeFunction",
     "FunctionName": {
-     "Fn::ImportValue": "ProductsAppStack:ExportsOutputFnGetAttproductsFetchFunction2DB1CD0CArn17AF6EB5"
+     "Fn::ImportValue": "ProductsApp:ExportsOutputFnGetAttproductsFetchFunction2DB1CD0CArn17AF6EB5"
     },
     "Principal": "apigateway.amazonaws.com",
     "SourceArn": {
@@ -129,7 +129,7 @@
     }
    },
    "Metadata": {
-    "aws:cdk:path": "ECommerceApi/EcommerceApi/Default/products/GET/ApiPermission.Test.ECommerceApiEcommerceApi575E9953.GET..products"
+    "aws:cdk:path": "EcommerceApi/EcommerceApi/Default/products/GET/ApiPermission.Test.EcommerceApi17CA3E83.GET..products"
    }
   },
   "EcommerceApiproductsGETB27B9AED": {
@@ -152,7 +152,7 @@
        [
         "arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/",
         {
-         "Fn::ImportValue": "ProductsAppStack:ExportsOutputFnGetAttproductsFetchFunction2DB1CD0CArn17AF6EB5"
+         "Fn::ImportValue": "ProductsApp:ExportsOutputFnGetAttproductsFetchFunction2DB1CD0CArn17AF6EB5"
         },
         "/invocations"
        ]
@@ -161,7 +161,7 @@
     }
    },
    "Metadata": {
-    "aws:cdk:path": "ECommerceApi/EcommerceApi/Default/products/GET/Resource"
+    "aws:cdk:path": "EcommerceApi/EcommerceApi/Default/products/GET/Resource"
    }
   },
   "CDKMetadata": {
@@ -170,7 +170,7 @@
     "Analytics": "v2:deflate64:H4sIAAAAAAAA/02Myw6CMBBFv4V9GUE3bH0kbjQa/ABTYMRCaZs+JKTh36VBIqs59+TO3cIugzSivYnLqo05K8A/LC1bMqmn57I24C+yPmvpFDm+xMIjoYrV1GJPB/A5GrtXLBQWPKHicuhQ2GBXaZqvMbgZpr50usQDNf/wG5r5ivYtq6BmGgmnXVFRmMwddceMYVKMoXBzVjm7/h6JkBVCYzafNIMEkqgxjMXaCcs6hHy+X9X9kqQHAQAA"
    },
    "Metadata": {
-    "aws:cdk:path": "ECommerceApi/CDKMetadata/Default"
+    "aws:cdk:path": "EcommerceApi/CDKMetadata/Default"
    }
   }
  },

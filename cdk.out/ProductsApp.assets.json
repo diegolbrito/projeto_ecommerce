@@ -1,7 +1,7 @@
 {
   "version": "20.0.0",
   "files": {
-    "7798cb37d5aa457c0880533b42c9800d096c91dc6a5cd8acf3186fc548c9acbf": {
+    "5182c88129acd0c61aaf6a3aa76fad2590215dff8de8f25fc5a6a951a2f9cc23": {
       "source": {
         "path": "C:\\Users\\diego\\source\\repos\\projeto_ecommerce",
         "packaging": "zip"
@@ -9,21 +9,21 @@
       "destinations": {
         "211112452705-us-east-1": {
           "bucketName": "cdk-hnb659fds-assets-211112452705-us-east-1",
-          "objectKey": "7798cb37d5aa457c0880533b42c9800d096c91dc6a5cd8acf3186fc548c9acbf.zip",
+          "objectKey": "5182c88129acd0c61aaf6a3aa76fad2590215dff8de8f25fc5a6a951a2f9cc23.zip",
           "region": "us-east-1",
           "assumeRoleArn": "arn:${AWS::Partition}:iam::211112452705:role/cdk-hnb659fds-file-publishing-role-211112452705-us-east-1"
         }
       }
     },
-    "ecd6b02b6c76d0e1de80d172867450ab7946a8dd5ffd534112cce0c700681e68": {
+    "60e737c598b120c104391533cec30cc7b82d1b718136b008e75991dca066ab3e": {
       "source": {
-        "path": "ProductsAppStack.template.json",
+        "path": "ProductsApp.template.json",
         "packaging": "file"
       },
       "destinations": {
         "211112452705-us-east-1": {
           "bucketName": "cdk-hnb659fds-assets-211112452705-us-east-1",
-          "objectKey": "ecd6b02b6c76d0e1de80d172867450ab7946a8dd5ffd534112cce0c700681e68.json",
+          "objectKey": "60e737c598b120c104391533cec30cc7b82d1b718136b008e75991dca066ab3e.json",
           "region": "us-east-1",
           "assumeRoleArn": "arn:${AWS::Partition}:iam::211112452705:role/cdk-hnb659fds-file-publishing-role-211112452705-us-east-1"
         }

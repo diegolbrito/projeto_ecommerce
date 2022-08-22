@@ -16,12 +16,12 @@ const tags = {
   team: "mba",
 }
 
-const productsAppStack = new ProductAppStack(app, "ProductsAppStack", {
+const productsAppStack = new ProductAppStack(app, "ProductsApp", {
   tags: tags,
   env: env
 })
 
-const ecommerceApiStack = new ECommerceApiStack(app, "ECommerceApi", {
+const ecommerceApiStack = new ECommerceApiStack(app, "EcommerceApi", {
   productsFetchHandler: productsAppStack.productsFetchHandler,
   tags: tags,
   env: env

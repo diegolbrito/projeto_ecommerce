@@ -1,15 +1,15 @@
 {
   "version": "20.0.0",
   "files": {
-    "191f8e91d799e0bb9df64f52e90ff4f896169d8bcf1497fa8449314531ed2cf9": {
+    "7a25ed345bac0bbfddfc9fe86c99dd711757a2e9e79170ddc02f1688032fb3ef": {
       "source": {
-        "path": "ECommerceApi.template.json",
+        "path": "EcommerceApi.template.json",
         "packaging": "file"
       },
       "destinations": {
         "211112452705-us-east-1": {
           "bucketName": "cdk-hnb659fds-assets-211112452705-us-east-1",
-          "objectKey": "191f8e91d799e0bb9df64f52e90ff4f896169d8bcf1497fa8449314531ed2cf9.json",
+          "objectKey": "7a25ed345bac0bbfddfc9fe86c99dd711757a2e9e79170ddc02f1688032fb3ef.json",
           "region": "us-east-1",
           "assumeRoleArn": "arn:${AWS::Partition}:iam::211112452705:role/cdk-hnb659fds-file-publishing-role-211112452705-us-east-1"
         }

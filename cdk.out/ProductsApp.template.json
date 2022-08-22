@@ -31,7 +31,7 @@
     ]
    },
    "Metadata": {
-    "aws:cdk:path": "ProductsAppStack/productsFetchFunction/ServiceRole/Resource"
+    "aws:cdk:path": "ProductsApp/productsFetchFunction/ServiceRole/Resource"
    }
   },
   "productsFetchFunction2DB1CD0C": {
@@ -39,7 +39,7 @@
    "Properties": {
     "Code": {
      "S3Bucket": "cdk-hnb659fds-assets-211112452705-us-east-1",
-     "S3Key": "7798cb37d5aa457c0880533b42c9800d096c91dc6a5cd8acf3186fc548c9acbf.zip"
+     "S3Key": "5182c88129acd0c61aaf6a3aa76fad2590215dff8de8f25fc5a6a951a2f9cc23.zip"
     },
     "Role": {
      "Fn::GetAtt": [
@@ -62,7 +62,7 @@
     "productsFetchFunctionServiceRole1B528C44"
    ],
    "Metadata": {
-    "aws:cdk:path": "ProductsAppStack/productsFetchFunction/Resource",
+    "aws:cdk:path": "ProductsApp/productsFetchFunction/Resource",
     "aws:asset:path": "C:\\Users\\diego\\source\\repos\\projeto_ecommerce",
     "aws:asset:is-bundled": true,
     "aws:asset:property": "Code"
@@ -74,7 +74,7 @@
     "Analytics": "v2:deflate64:H4sIAAAAAAAA/zWNOw6DMBBEz0JvNhAa2hApZQpyALSYDVo+tsTaSYG4e2yjVE8zGr25QlVDmeFXcj3M+cI97C+Helah6vYF137AztiBJoFnwsMb7dgaxbjC3tqF1P1tIg8lVYci5ARuESFD4/VMrkEhddogrP+OQ6VdeBzZjMlDYv2mgyuewiSXT1lDAUU2CXO+eeN4JWhP/gBT0xIuvwAAAA=="
    },
    "Metadata": {
-    "aws:cdk:path": "ProductsAppStack/CDKMetadata/Default"
+    "aws:cdk:path": "ProductsApp/CDKMetadata/Default"
    }
   }
  },
@@ -87,7 +87,7 @@
     ]
    },
    "Export": {
-    "Name": "ProductsAppStack:ExportsOutputFnGetAttproductsFetchFunction2DB1CD0CArn17AF6EB5"
+    "Name": "ProductsApp:ExportsOutputFnGetAttproductsFetchFunction2DB1CD0CArn17AF6EB5"
    }
   }
  },
